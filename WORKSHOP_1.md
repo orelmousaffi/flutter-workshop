@@ -8,9 +8,8 @@ Here you'll find the completed code for session 1 of the workshop
 
 We will be creating a Trips App that allows the user to add their upcoming trips and display them in a list.
 
-1. Create an empty project using cmd + shift + p and then type `Flutter: New Project`, enter project name as `my_trips_app`. Wait for the project creation to be finished.
-2. We'll first create the main page of our app, it has a bottom navigation bar with two tabs: `My Trips` and `Add Trips`. Let's create a folder in `lib/features/trips/screens/main` for `main.screen.dart`.
-3. Define `MainScreen` widget as just an empty widget for now.
+1. We'll first create the main page of our app, it has a bottom navigation bar with two tabs: `My Trips` and `Add Trips`. Let's create a folder in `lib/features/trips/screens/main` for `main.screen.dart`.
+2. Define `MainScreen` widget as just an empty widget for now.
 
 ```dart
 class MainScreen extends StatelessWidget {
