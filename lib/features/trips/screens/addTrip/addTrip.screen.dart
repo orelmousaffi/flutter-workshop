@@ -27,14 +27,8 @@ class _AddTripScreenState extends ConsumerState<AddTripScreen> {
 
   void handleOnPress() {
     if (_formKey.currentState?.saveAndValidate() ?? false) {
-      var formState = _formKey.currentState;
-
-      if (formState != null) {
-        formState.fields.forEach((key, field) {
-          var value = field.value;
-          print("$key: $value");
-        });
-      }
+      ref.read(addTripControllerProvider.notifier).addTrip();
+      _formKey.currentState?.reset();
     }
   }
 
