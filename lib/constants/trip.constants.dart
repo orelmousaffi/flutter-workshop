@@ -1,41 +1,39 @@
-// ignore_for_file: non_constant_identifier_names, constant_identifier_names
+import 'package:flutter/material.dart';
+import 'package:flutter_workshop/features/trips/screens/addTrip/addTrip.screen.dart';
+import 'package:flutter_workshop/features/trips/screens/myTrips/myTrips.screen.dart';
 
-class TripPage {
+enum TripPage {
+  myTrips('My Trips', Icons.list),
+  addTrips('Add Trip', Icons.add);
+
   final String label;
-  final int index;
+  final IconData icon;
 
-  TripPage({required this.label, required this.index});
+  const TripPage(this.label, this.icon);
+
+  BottomNavigationBarItem getBottomNavigationBarItem() {
+    return BottomNavigationBarItem(icon: Icon(icon), label: label);
+  }
+
+  Widget getScreen() {
+    switch (this) {
+      case myTrips:
+        return const MyTripsScreen();
+      case addTrips:
+        return const AddTripScreen();
+    }
+  }
 }
 
-class TripFormField {
+enum AddTripForm {
+  title('title', 'Title'),
+  description('description', 'Description'),
+  location('location', 'Location'),
+  date('date', 'Trip Date'),
+  photoURL('photo_url', 'Photo URL');
+
   final String name;
   final String label;
 
-  TripFormField({required this.name, required this.label});
+  const AddTripForm(this.name, this.label);
 }
-
-class TripPages {
-  static TripPage MY_TRIPS = TripPage(label: 'My Trips', index: 0);
-  static TripPage ADD_TRIPS = TripPage(label: 'Add Trip', index: 1);
-}
-
-class AddTripForm {
-  static TripFormField TITLE = TripFormField(name: 'title', label: 'Title');
-  static TripFormField DESCRIPTION =
-      TripFormField(name: 'description', label: 'Description');
-  static TripFormField LOCATION =
-      TripFormField(name: 'location', label: 'Location');
-  static TripFormField PHOTO = TripFormField(name: 'photo', label: 'Photo');
-}
-
-enum ToastStatus { success, error, info }
-
-// Successful / Static Messages
-const String NO_TRIP_FOUND = 'There are no trips to display';
-const String TRIP_SUCCESSFULLY_DELETED = 'The trip was successfully deleted.';
-const String TRIP_SUCCESSFULLY_ADDED = 'The trip was successfully added.';
-const String CREATE_TRIP_LABEL = 'Create Trip';
-
-// Error Messages
-const String ERROR_DELETING_TRIP = 'An error occurred, trip was not deleted.';
-const String ERROR_ADDING_TRIP = 'An error occurred, trip was not added.';
