@@ -54,18 +54,6 @@ Each of the guides above will show how to validate the installation of Flutter o
 
 ![FlutterDoctor](assets/images/readme/flutter_doctor.png)
 
-## Session #1 Instructions
-We will be creating a Trips App that allows the user to add their upcoming trips and display them in a list.
-0. Create an empty project using cmd + shift + p and then type `Flutter: New Project`, enter project name as `Travel App`. Wait for the project creation to be finished.
-1. Erase the code in `main.dart` as we'll be re-writing the code. If you run the app you should see empty screen.
-2. Define some constants. We'll have 2 pages for our app: `My Trips` page and `Add Trips` page. We can define them as an enum `TripPage` in constants.dart.
-3. Create two blank widgets that we will use for the two pages, feel free to just copy from `main.dart` for now.
-4. The `build()` method can be called many times during the app's run, so it's not good to keep track of stateful information here. In order to safely keep track of information such as which page we're on, we need to change our main screen to a stateful widget.
-5. Define our state: we need to keep track of the `currentPage`. And while we're here, we can also define our pages and bottom navigations, since they are constants, keeping them in the state object ensures we're only creating them once. We can also define the page controller that will be used by the widget to switch between pages, this can also live in the state object since we only need to create it once.
-6. We need to change our state (`currentPage`) whenever the page controller detects a change. In `initState()`, add listener to the page controller to `setState()` when page changes. `setState()` changes the state and forces a rebuild, which changes the view base on the new state.
-7. `build()` the main screen widget by adding `AppBar` with the page title, `PageView` with the pages, and `BottomNavigationBar` using the state object we defined.
-8. Add onTap callback to the `BottomNavigationBar` widget to handle `setState()` with page changes when user taps the bottom nav tabs
-
 ## Getting Started
 
 Once all Prerequisite steps have been completed and `flutter doctor` shows `No issues found!` everything should be set up to run the app on a simulator of choice (iOS or Android).
