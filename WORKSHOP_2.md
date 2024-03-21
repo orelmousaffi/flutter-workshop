@@ -129,7 +129,7 @@ Now we're ready to connect our functionalities to the screen actions!
 
 ### Adding and Fetching trips from local storage and display
 
-1. We learned last time that a `Notifier` in flutter is used as a centralized store for us to store state. So let's go ahead and create a `Notifier` that will interface with the repository and manage the sate of the data we are loading from local storag. Create the notifier file `trip.notifier.dart` under `lib/features/trips/providers`:
+1. We learned last time that a `Notifier` in Flutter is used as a centralized store for us to store state. So let's go ahead and create a `Notifier` that will interface with the repository and manage the sate of the data we are loading from local storage. Create the notifier file `trip.notifier.dart` under `lib/features/trips/providers`:
 
 ```dart
 class TripNotifier extends StateNotifier<List<Trip>> {
@@ -262,3 +262,40 @@ return const Padding(
 10. Now let's wrap up the demo by listing all the trip attributes and displaying the image from the URL provided.
 
 ```dart
+return Padding(
+  padding: const EdgeInsets.all(16),
+  child: Wrap(
+    direction: Axis.vertical,
+    spacing: 5,
+    children: [
+      Image(
+        image: NetworkImage(trip.photo),
+        width: MediaQuery.of(context).size.width - 32,
+      ),
+      const SizedBox(
+        height: 15.0,
+      ),
+      const Text(
+        'Title:',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      Text(trip.title),
+      const Text(
+        'Description:',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      Text(trip.description),
+      const Text(
+        'Location:',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      Text(trip.location),
+      const Text(
+        'Trip Date:',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      Text(trip.date.toString()),
+    ],
+  ),
+);
+```
