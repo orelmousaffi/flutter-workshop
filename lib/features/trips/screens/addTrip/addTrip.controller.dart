@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_workshop/features/trips/data/models/trip.model.dart';
-import 'package:flutter_workshop/features/trips/providers/trip.provider.dart';
+import 'package:flutter_workshop/features/trips/providers/trip.proider.dart';
 
 class AddTripState {
   final String? title;
