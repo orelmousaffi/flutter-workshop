@@ -12,19 +12,21 @@ To build out the workshops we can plan using the following action items:
   - Complete the session by having a notifier pass state between pages.
 
 - Session #2:
+
   - Build out a branch that has the bare minimum setup to build out the trip form.
   - Save trips in local storage.
   - Start building the `My Trips` page.
-  - Delete trip functionality.
   - Final version of this session would load added trips to the `My Trips` page.
-  - Add error handling.
+
 - Session #3:
 
   - Add API integration for weather data.
+  - Clean up UI -- [Implmented but not 'code-along']
+  - display weather features accordingly.
+
+  - Navigate back to `MyTrips` after adding a trip.
+  - Delete trip functionality.
   - Have user feedback (i.e toast message)
-  - Implement unit testing for respective components.
-  - Clean up UI; display weather features accordingly.
-  - Add some feature so that they can use what they learned to build the 3rd tab.
 
 - For each session create a git brach
 - Each git branch will have comments to fill in the logic focused in the respective session
@@ -49,6 +51,15 @@ To build out the workshops we can plan using the following action items:
 4. Creating `Provider` + `Notifier` to use with pages [Lucy]
 5. Build out the `MyTrips` page and connect to `Hive` [Or-el]
 6. Q&A [Lucy + Or-el]
+
+## Session #3
+
+1. Add API integration for weather data. [Lucy]
+2. Set up `TripCard` for session 3 bolierplate code. [Lucy]
+3. Display weather features accordingly. [Lucy]
+4. Navigate back to `MyTrips` after adding a trip. [Or-el]
+5. Delete trip functionality. [Or-el]
+6. Have user feedback (i.e toast message) [Or-el]
 
 # Workshop Invite
 
