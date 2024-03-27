@@ -13,13 +13,14 @@ class _MainScreenState extends State<MainScreen> {
 
   final _bottomNavItems =
       TripPage.values.map((e) => e.getBottomNavigationBarItem()).toList();
-  final _pages = TripPage.values.map((e) => e.getScreen()).toList();
+  List<Widget> _pages = [];
 
   final _pageController = PageController();
 
   @override
   void initState() {
     super.initState();
+    _pages = TripPage.values.map((e) => e.getScreen()).toList();
     _pageController.addListener(() {
       setState(() {
         _currentPage = TripPage.values[_pageController.page!.round()];

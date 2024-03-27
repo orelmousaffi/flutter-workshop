@@ -5,19 +5,20 @@ import 'package:flutter_workshop/features/trips/domain/repositories/trip.reposit
 import 'package:flutter_workshop/features/trips/providers/trip.notifier.dart';
 import 'package:hive/hive.dart';
 
-final tripLocalDataSourceProvider = Provider((ref) {
+final tripLocalDataSourceProvider = Provider<TripLocalDataSource>((ref) {
   final Box<Trip> tripBox = Hive.box('trips');
   return TripLocalDataSource(tripBox: tripBox);
 });
 
-final tripRepositoryProvider = Provider((ref) {
-  final TripLocalDataSource localDataSource =
-      ref.read(tripLocalDataSourceProvider);
-  return TripRepository(localDataSource: localDataSource);
+final tripRepositoryProvider = Provider<TripRepository>((ref) {
+  final localDataSource = ref.read(tripLocalDataSourceProvider);
+  return TripRepository(
+    localDataSource: localDataSource,
+  );
 });
 
 final tripNotifierProvider =
     StateNotifierProvider<TripNotifier, List<Trip>>((ref) {
-  final repository = ref.read(tripRepositoryProvider);
+  final repository = ref.watch(tripRepositoryProvider);
   return TripNotifier(repository.getTrips(), repository);
 });
