@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_workshop/features/trips/data/models/trip.model.dart';
-import 'package:flutter_workshop/features/trips/providers/trip.proider.dart';
+import 'package:flutter_workshop/features/trips/providers/trip.provider.dart';
 
 class AddTripState {
   final String? title;
@@ -21,8 +21,7 @@ class AddTripController extends Notifier<AddTripState> {
         description: state.description ?? '',
         date: state.date ?? DateTime.now().add(const Duration(days: 15)),
         location: state.location ?? '');
-
-    ref.read(tripNotifierProvider.notifier).addTrip(trip);
+    ref.read(tripNotifierProvider.notifier).addNewTrip(trip);
   }
 
   void updateFields(Map<String, dynamic> updatedFields) {

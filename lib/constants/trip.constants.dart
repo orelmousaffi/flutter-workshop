@@ -20,7 +20,7 @@ enum TripPage {
       case myTrips:
         return const MyTripsScreen();
       case addTrips:
-        return const AddTripScreen();
+        return AddTripScreen();
     }
   }
 }
