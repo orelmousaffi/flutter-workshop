@@ -37,3 +37,5 @@ enum AddTripForm {
 
   const AddTripForm(this.name, this.label);
 }
+
+enum ToastStatus { success, error, info }

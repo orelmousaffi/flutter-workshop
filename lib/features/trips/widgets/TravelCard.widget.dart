@@ -13,12 +13,17 @@ class TravelCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            title: Text(
-              trip.title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            subtitle: Text(trip.location),
-          ),
+              title: Text(
+                trip.title,
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(trip.location),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.delete,
+                    color: Color.fromRGBO(186, 0, 13, 1.0)),
+              )),
           SizedBox(
             width: double.infinity,
             child: Image.network(

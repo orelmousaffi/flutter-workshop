@@ -20,7 +20,8 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    _pages = TripPage.values.map((e) => e.getScreen()).toList();
+    _pages = TripPage.values.map((page) => page.getScreen()).toList();
+
     _pageController.addListener(() {
       setState(() {
         _currentPage = TripPage.values[_pageController.page!.round()];
