@@ -239,4 +239,57 @@ void handleOnPress() {
 
 ### Delete Trip
 
-1. To delete a trip, let's 
+1. To delete a trip, we'll need to implement a delete function in each data layer. The first would be the local data source. Here we delete the trip from the Hive box:
+
+```dart
+void deleteTrip(int index) {
+  tripBox.deleteAt(index);
+}
+```
+
+2. Now let's call the data source delete method from the repository layer like so:
+
+```dart
+void deleteTrip(int index) {
+    localDataSource.deleteTrip(index);
+  }
+```
+
+3. Now let's add the function to the notifier so that we can call the functions from other widgets:
+
+```dart
+void deleteTrip(int index) {
+  repository.deleteTrip(index);
+  state = repository.getTrips();
+}
+```
+
+4. On the `MyTrips` page, we now have to call the `tripNotifierProvider` to invoke the delete methods we just implemented. Let's create a handler for the delete and pass it into the `TravelCard` to call on press of the delete icon.
+
+```dart
+void onDeleteHandler(int index) {
+  ref.read(tripNotifierProvider.notifier).deleteTrip(index);
+}
+
+Widget itemBuilder(BuildContext context, int index) {
+  Trip trip = tripList[index];
+  return TravelCard(
+      trip: trip,
+      onDeleteHandler: () {
+        onDeleteHandler(index);
+      });
+}
+```
+
+5. Update the `TravelCard` to accept the handler and invoke on press:
+
+```dart
+// At the top of the class
+final VoidCallback onDeleteHandler;
+
+const TravelCard(
+    {super.key, required this.trip, required this.onDeleteHandler});
+
+// Update onPress function
+onPressed: onDeleteHandler
+```
